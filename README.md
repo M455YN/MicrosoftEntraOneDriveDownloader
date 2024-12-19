@@ -1,6 +1,6 @@
-#MicrosoftEntraOneDriveDownloader
-##Description
+# MicrosoftEntraOneDriveDownloader
 
+## Description
 The **MicrosoftEntraOneDriveDownloader** program is a .NET application designed to interact with **Microsoft Azure Blob Storage using OAuth 2.0 authentication**. The program performs the following tasks:
 
 1. **Authenticate using OAuth 2.0**:
@@ -9,7 +9,7 @@ The **MicrosoftEntraOneDriveDownloader** program is a .NET application designed 
 2. **List blobs (files) in a container**:
 	 - Retrieves the list of blobs from a specified Azure Blob Storage container.
 	 - Parses the response and extracts blob names and URLs.
-3. ** Download large files in chunks**:
+3. **Download large files in chunks**:
 	- Downloads each blob from the container.
 	- Handles large files by dividing them into manageable chunks and writing each chunk to the destination file.
 	- Supports HTTP range headers to efficiently download files in parts.
@@ -44,35 +44,38 @@ The **MicrosoftEntraOneDriveDownloader** program is a .NET application designed 
 ## Configuration
 To configure the program, update the following values in the code:
 - Azure AD OAuth Settings:
-> var values = new Dictionary<string, string>
+```
+var values = new Dictionary<string, string>
 {
     { "client_id", "<YOUR_CLIENT_ID>" },
     { "client_secret", "<YOUR_CLIENT_SECRET>" },
     { "resource", "https://storage.azure.com" },
     { "grant_type", "client_credentials" }
 };
+```
 - Container URL and Destination Path:
-> string containerUrl = "<YOUR_CONTAINER_URL>";
+```
+string containerUrl = "<YOUR_CONTAINER_URL>";
 string destinationPath = "<YOUR_DESTINATION_PATH>";
+```
 - Azure API Version:
-> string msVersion = "2020-04-08";
-
+```
+string msVersion = "2020-04-08";
+```
 ## Usage
-
 Build and run the program using your preferred .NET IDE (e.g., Visual Studio) or command-line tools.
 
 The program will:
-
 - Authenticate with Azure AD.
 - List all blobs in the specified container.
 - Download each blob to the specified local directory.
-
 ### Example Output:
-> Downloaded chunk 1/4: samplefile.txt
+```
+Downloaded chunk 1/4: samplefile.txt
 Downloaded chunk 2/4: samplefile.txt
 Downloaded chunk 3/4: samplefile.txt
 Downloaded chunk 4/4: samplefile.txt
-
+```
 ## References
-[Azure Storage REST API Documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/ "Azure Storage REST API Documentation")
-[Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview "Microsoft Authentication Library (MSAL)")
+- [Azure Storage REST API Documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/ "Azure Storage REST API Documentation")
+- [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview "Microsoft Authentication Library (MSAL)")
